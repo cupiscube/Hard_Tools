@@ -7,12 +7,12 @@ from pycparser.ply.cpp import tokens
 
 app = typer.Typer()
 
-SUPERSET_URL = "superset_url"  # или твой адрес
+SUPERSET_URL = "http://10.100.100.50:8088"  # или твой адрес
 
-KEYCLOAK_URL = 'kc_url'
-KEYCLOAK_REALM = 'kc_realm'
-KEYCLOAK_CLIENT_ID = 'kc_cl_id'
-KEYCLOAK_CLIENT_SECRET = 'kc_cl_secret'
+KEYCLOAK_URL = 'https://uaa.gontardcie.online'
+KEYCLOAK_REALM = 'GCIE'
+KEYCLOAK_CLIENT_ID = 'superset-test'
+KEYCLOAK_CLIENT_SECRET = 'LIy28VOsENAr97Sqba67BdbuM5zILwe8'
 
 def get_access_token():
     token_url = f"{KEYCLOAK_URL}/realms/{KEYCLOAK_REALM}/protocol/openid-connect/token"
@@ -21,9 +21,9 @@ def get_access_token():
         "scope": "openid",
         "client_id": KEYCLOAK_CLIENT_ID,
         "client_secret": KEYCLOAK_CLIENT_SECRET,
-        "email": "email",
-        "username": "user",
-        "password": "password"
+        "email": "dbatrakov@gontardcie.com",
+        "username": "dbatrakov",
+        "password": "JbqIhxa2yBVa"
     }
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     res = requests.post(token_url, data=payload, headers=headers)
@@ -41,6 +41,7 @@ def setup_session():
 
     # Login via browser -> f12 -> Application -> Cookie -> Session
     session_cookie = input('Pls, enter here your session cookie (Login via browser -> f12 -> Application -> Cookie -> Session): ')
+    # session_cookie = '.eJytVVuTokoS_isbPp-eLgoR6TdvIIyUw0WB2tjogAKloEBb8AInzn_fxJ6ZndmNjdiHfVC0KvPLL7_MJP8cvR8uWZOP3trLNftj9M7T0dvocFBTpKWqpGKmIhVLSJWZfJhgdYLHSsIQnqoTdTKZaBMNZeMDSjJNTcfTMZ6isTKF22mmSokyBt8Es1hFsZbJ04mmTBBOUoS0jGlxkk0VpEiHmMnTKRwmaTaWxsk0TUdA5Npkl082GP7GTVezd5bHdZ2JHyQZSpiavkwYy17Gkiy_JCxGLxJS8IRJaJyqyU_Pn2j4j5E4sVhkgJDVcH-Kry2k_-fob-3o7e-jrLPyxGB8yy1v15sS4WZj1q7CFuZxy2fcE-nO5HceY1GafDYxF9Z9p583SSXcoCZ3Vz6fXdkZ7-T9jcipyNY0JP5cCnZWT2VqOEK_UvTY2aFOzBp9gXhgM-PbYiWTZYTI0n6Q5bExK5GnC3Ni-wyRwkF2UeLt4s6jcI9iXUNxIAmzOD1I72CydB72kt03C-sjNcqBexkVbhVhUpEFkuze4hvfLW3fbqMC7jypivqdZGNbsoOVtPVLDr5nJtuD7yldu3fWn24beZ9HnlInWEFRCH5YiE2lXRNDXKmndTTQmyS0by4iluuBTpUuUeAMzyLCmpTUzoDbp4EJuOaY-qSKCiIIl0paOd3GdzpSRO126UiUA0-sl6QvZRvTAvgNvigLZwOnBcTqaGgOZ3lWP8_6NJwLVhORLiQEKqOhLmyoS3HixI8exBfl1oCce8DjCEX98b7xj32EoxZqUtLAze1-Bto5j8E3Ckg3-NqLZy5NYmgyDZw2ka0zxeLKOnMSdObtK7dS4PGZ_17LQWfx1K5uOKu0hobwWzScGvsK6tUAvy7BD8E6qR40HGIlmFZPHX_xB0wpCfTDs8aG1sXhOU8NcUsg3sGD3Kp9n8j7LsL7A3AtIOfeLM6qWROJGfuO4T3ahC5gOf_BxQncNg7GPAxR82t9_t0O4l-jIBWb4LcatlGg5BTv2iEucLhCTk0cKBfQBOaDnmnIWra2brQSDfWA7xCnHmznQ5_y4QkzUprrOWhBz4mxO9JAyuPgPuALiHtOdA3TELSuhBj6KF1bEoW8k0pvqQd9Vbo5YDTmysrhLo-xhp81X1uCVpB_tS9Ded8DBuTwnA-owe-2UNMiCh6fd6AHxK7jkIpEaD99XEO_fudVwdk5WYvDvzj8jvcjh-fMVTpilX5JZDqjWLumBvSsQc7UU4oEowHvxqp0DXpLbD3o3apmBXOEvvcs3j3syhxvjai1YUIjD3o2cKuNXz6o77Qwx4Iu9zwqIsVeWuUz919rvHOJt4Ma_6pZkQrbt_h2mQOOVdl41RJDL2HeFDvYoY1vQx87UlSZeOvPOro8L6Hfham7IgqenM-fM71CMDPF1nDhXTLrCfAhS8G3CwnmZqdsYLbtXpR0OefbIQ63tIFHauxBVwVBnyYmn8rUX3VRcRxD_I4WJIf3Uk4h362vC3hX9TbUkAQWJ0V5tytn4mDQx5vvYNbaDdJX_k5sTSFpX1LjPbrz8ojsOlqGNtlEZMoPkeSiRXhFQWNLJbo5yhUfNkElTCKWk_72uB2jS-_ZepFtXuqK1998Ow-xiaz04T9w2cwWH4aea-m3WlvWjhrVY14TU2Lhuu8mNt-_f-WOxE5N2XSPwG4Mj-ofD5YfqR-u1RiNazQ_qCviRCcZ17m6_3omi0I4-Oi99Fiumr2_-OjENy68NvSFNck-TKF7nbcprwUKtukl8nvUaPMgZH39PruPSW77-695rNL7i765H2J3o0WrF9c5NqXsOeaCbOdbI4_np_JAlvnxcUjRNUr0yZY5NzJLJbfProUdPgQPt3PbZTsUnq12vJr5qx2Z3b3bQuF8dr4i_2ElDizE0T_--r4V38-X042n2QV25ZHx7KXMOiZOcfljbb43bdwOm1Tlix05LhdptViFtlgqfcvQtGhrRbrFDzA_x8fsPedNe7p0w5rN2_b89voqoS8S-vwo6G2KptPXy0lkzasA01fw--92w0b_3-2ylLev-P8IOHzz-nB6Bbn-Cb9VDII.aBi7Ug.lUXr5tcjqbuBDP_aNkST7reCUjw'
     session.cookies.set("session", session_cookie)
 
     # Теперь session содержит куку
@@ -51,6 +52,7 @@ def setup_session():
 
 def get_dashboard(dashboard_id):
     url = f"{SUPERSET_URL}/api/v1/dashboard/{dashboard_id}"
+    # print(session.get(f"{SUPERSET_URL}/api/v1/dashboard").json()["result"])
 
     res = session.get(url)
     res.raise_for_status()
