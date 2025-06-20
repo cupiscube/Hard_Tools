@@ -11,30 +11,23 @@ import typer
 from pycparser.ply.cpp import tokens
 
 
-KEYCLOAK_URL = 'https://uaa.gontardcie.online'
-KEYCLOAK_REALM = 'GCIE'
-KEYCLOAK_CLIENT_ID = 'superset-test'
-KEYCLOAK_CLIENT_SECRET = 'LIy28VOsENAr97Sqba67BdbuM5zILwe8'
+KEYCLOAK_URL = 'URL'
+KEYCLOAK_REALM = 'Some'
+KEYCLOAK_CLIENT_ID = 'some-test'
+KEYCLOAK_CLIENT_SECRET = 'some'
 
-# SOURCE_SUPERSET_URL = "http://10.100.100.50:8088"  # Без /superset в конце
-# SOURCE_SUPERSET_URL = "https://dss.gontardcie.online"
-# SOURCE_SUPERSET_URL = "http://159.100.244.234:8088"
-SOURCE_SUPERSET_URL = "https://dss.gontardcie.online"
+SOURCE_SUPERSET_URL = "URL"  # Без /superset в конце
+TARGET_SUPERSET_URL = "URL"
 
-# TARGET_SUPERSET_URL = "http://10.100.100.50:8088"  # Без /superset в конце
-# TARGET_SUPERSET_URL = "https://dss.gontardcie.online"
-# TARGET_SUPERSET_URL = "http://159.100.244.234:8088"
-TARGET_SUPERSET_URL = "https://dss.gontardcie.online"
-
-SOURCE_DASHBOARD_ID = 12
-NEW_TABLE_NAME = "demo_superset_labavatar_TEST"
-NEW_SCHEME_NAME = "demo_0"
-NEW_DASHBOARD_TITLE = "Labavatar [DEMO] [TEST] 2"
+SOURCE_DASHBOARD_ID = 21
+NEW_TABLE_NAME = None # "demo_superset_labavatar_TEST"
+NEW_SCHEME_NAME = None #"demo_0"
+NEW_DASHBOARD_TITLE = "Lab Data v2.1"
 
 
 # ######################## SESSION ######################## #
 # Login via browser -> f12 -> Application -> Cookie -> Session
-cookie = ".eJyNVl2TokoS_SsbPm9PFwWozJutgtBSDAoCtbHRwZfyUYW0gAg39r9vYs-9O7P7sg8GUlZlnnMy81h_zD7Ot7TJZt_bW5f-ffaRJ7PvMyFcpotYTMKzIsXnMJFCaXEWwlhR4IMSRTovwzgVJSxE54WIQzldyFG8OMtpLEbzNJ7HKJyn53kYL6VUVmQpXcrpMhIkHCtwKF2k8lxaomSJ5URQsCgKcSQnYQpZowghYQZAuia9_UQDr-wahyyFl7SCt2vYtQD5j9nf2tn3f8zSwcgiLc6t3Di6oy6QXG_06iDHa_1i5av8yBJXz_s8xKzU89VcXxu9q9b7iLODV5H-INb1QbQlVzzdiZiwdEd94rwJnmuMVKSazdSOoodr-irRK_QN8sGeVW4VW5E4qwdxYtEszEbnLEvW-tx0YsHcbAUyusgc-jzwTyhUFRR6AtOL6wPWe9NxseWshv3a-Ey0ErDrozmusDkmGRlQTz1z2DuHzBzN1vK2KIA1Upg9Gbc4GI0ycOwcztaQeeJ9TXaHPh6v9714yoKjXEVYRoEP-zBje650kcY6elQG6qlN5Jv3AyLG4Qg6cVWggBmeRYAVIaqeccfE0ydMEnUIDwrCSC6UlNuAyR5IEbTWxhZojgQTqyUZS9HEtAhGdzqLUn81YVpDroH6-rSWpdVzbUz8NxZXhCVrAYHKaKpLPNWluOaWR3NzdCUTu63lGMADIbo5lXvngsl4aQk2JcoDTACPyWk5nQ08MkxnzfWTSxNpikg9u41Eo6aYdfGgz71Bv7_nRgI4vviflAyisKd2VZPHXGmoD99Zk1PtxKFeDeAbIvxg8SBUk4ZTrghT_tTxl_MQU4g89fyssaYMoV9nicbuEeQ7H4EbP42ReBoCfDoD1gI4j3pRL_SKCLF2GmJ8Qnv_ALHs_8Fie4c29KTc91Hza33-ex_k7wIvYXvvtxq2gSdnFLSc8gKGDjg1oSffQBOYD1pTP27jnXGnnDX0CHinPNW0923q03x6woyU-u4NtKB1pLkX6glZ6PVTfAZ560hVMPVBa87Y1EfJzhAo8I642tIj9FV5yCBGo2-NDH7LQqzgZ813BqMc-PNT6YunEWIAh-d8QA1-3ws1LQLv8fUb6AG5q9CnLGLKX2cOmtr9xMVhrY527PwfDL_H-5MD9GMZcBXFXL1FIl1RrHSJBj2rkZoe5SLCaIp3j3myA72FeDfp3S50DnOEvnqWOLZExlMO89DSwhWtNUKWF0jQs1IA2lPNFUweSNCTfeBk_Mn9l9o57onY5emos6nGchZ57jR3AtlcROLpElkLHPwF4tkyLS4wd1lBjzCLjjvQImN085ZZWjC3MWA6vrnQ3-3T6zx74gdaHEoTByJdI8nc0AziILIx24CTLMgFbm5cbG703hwDTDdlfj4-fueHjcLUCDcx-JDjIvKcyQx6TUfWJmjBHcADVWY6NswoZf8nPzHgZh-Ak4GvyaChAF5XWhr0agF65gjcBDzUcx9kA_G5Oz-Ixj3xVxfz6Vlf2MAbOOG6bBZxC1M1EtCeTtp7OgZN2gDrQgDfA28r0sJ86JUweQDsARzTHAG-PXi0tYmFoLigvRcIT5_ZMA51lCyNAM8DI47BLe1UmtpWokW9AW9hunpggYfuf_ED3vsxyYPxraAFKfZOCTV0W6LZEtQrh3rivUM5eP-DOltEihhTp_7qq_XqsUeC6riG6k6-YX_j_N6v6of1qNjt0SzFE--vkSHvmuGUOGipVG-6BH81-u0tf6HMkxFBPOuMft9KI06t1Q_50lw__KZ2xcU7KuB4_tn2ZF9o_POef8h-uf60zc9xx7G8WLbXQ1Mg13vhH4_M8ZZJf9-Ea_WC2IFZVEz2ZTfmy63AP9rMAELh427MRaQv6Ht8He1FFyf7OEqJ6Hu28xKFc6Urg4fqdMEhRjmNH2u2moe3aoNj3x0_YSRT9GMe7JONes7V5vx-vfSNWF-VneL495ubow5f5l132d5P_WMtLX8IH4Vv48KX9TyhP3qxCu808KudrlTrrWndm_DevwsxzpRdrlxMQ-sCd1hGlu2fB0ftttfDy31xgavD7J__-nl_-Khv13uepDe4VVziPH0p0yFm17D884Lx0bRhO905zl6_ui5boyqsqHY10kcMO0aqpqtBURhsr8NL-pHlTXu9DdOFJGvb-vvra9I03y7Xqg1vCcT_dq1YXqWv08WmeWWw-xXA_BveljNW.aFFI5w.CcPMA-5RmUjZ34gbozV5LGPNrcQ"
+cookie = ""
 
 COOKIES = {
     "session": cookie
@@ -47,9 +40,9 @@ def get_access_token():
         "scope": "openid",
         "client_id": KEYCLOAK_CLIENT_ID,
         "client_secret": KEYCLOAK_CLIENT_SECRET,
-        "email": "dbatrakov@gontardcie.com",
-        "username": "dbatrakov",
-        "password": "JbqIhxa2yBVa"
+        "email": "some",
+        "username": "some",
+        "password": "some"
     }
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     res = requests.post(token_url, data=payload, headers=headers)
@@ -128,10 +121,10 @@ def get_metrics(base_dataset_id, SUPERSET_URL=SOURCE_SUPERSET_URL, session=sessi
 
 
 # ######################## CREATE ######################## #
-def create_dataset(base_dataset, new_table_name, SUPERSET_URL=TARGET_SUPERSET_URL, session=session_2):
+def create_dataset(base_dataset, new_table_name, new_scheme_name=NEW_SCHEME_NAME, SUPERSET_URL=TARGET_SUPERSET_URL, session=session_2):
     payload = {
         "database": base_dataset["database"]["id"],
-        "schema": NEW_SCHEME_NAME, # base_dataset["schema"],
+        "schema": new_scheme_name,
         "table_name": new_table_name,
         "sql": base_dataset.get("sql"),
         # "extra": base_dataset.get("extra"),
@@ -417,11 +410,16 @@ def main():
     except Exception:
         print(charts[0]["id"])
 
+    # TODO: What if datasource count more then one?
+
     source_dataset_id = query_context_dict["datasource"]["id"]
     dataset = get_dataset(source_dataset_id)
     print(f"📦 Оригинальный датасет: {dataset['table_name']}")
 
-    new_dataset_id = create_dataset(dataset, NEW_TABLE_NAME)
+    if NEW_TABLE_NAME is not None and NEW_SCHEME_NAME is not None:
+        new_dataset_id = create_dataset(base_dataset=dataset, new_scheme_name=NEW_SCHEME_NAME, new_table_name=NEW_TABLE_NAME)
+    else:
+        new_dataset_id = create_dataset(base_dataset=dataset, new_scheme_name=dataset['schema'], new_table_name=dataset['table_name'])
     print(f"🆕 Новый датасет создан: ID {new_dataset_id}")
 
     old_metrics = get_metrics(source_dataset_id)
