@@ -18,6 +18,16 @@ else:
     print("❌ Не удалось получить workspace_id. Проверьте API токен.")
     exit(1)
 
+
+
+
+
+
+
+
+
+
+
 # Получить все текущие теги
 response = requests.get(
     f"https://api.track.toggl.com/api/v9/workspaces/{WORKSPACE_ID}/tags", auth=auth)
