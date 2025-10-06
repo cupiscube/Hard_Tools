@@ -1,4 +1,4 @@
-from idlelib import query
+# from idlelib import query
 from urllib.parse import quote
 
 import requests
@@ -11,23 +11,30 @@ import typer
 from pycparser.ply.cpp import tokens
 
 
-KEYCLOAK_URL = 'URL'
-KEYCLOAK_REALM = 'Some'
-KEYCLOAK_CLIENT_ID = 'some-test'
-KEYCLOAK_CLIENT_SECRET = 'some'
+KEYCLOAK_URL = 'https://uaa.gontardcie.online'
+KEYCLOAK_REALM = 'GCIE'
+KEYCLOAK_CLIENT_ID = 'superset-test'
+KEYCLOAK_CLIENT_SECRET = 'LIy28VOsENAr97Sqba67BdbuM5zILwe8'
 
-SOURCE_SUPERSET_URL = "URL"  # Без /superset в конце
-TARGET_SUPERSET_URL = "URL"
+SOURCE_SUPERSET_URL = "http://10.100.100.50:8088"  # Без /superset в конце
+# SOURCE_SUPERSET_URL = "https://dss.gontardcie.online"
+# SOURCE_SUPERSET_URL = "http://159.100.244.234:8088"
+# SOURCE_SUPERSET_URL = "https://dss.gontardcie.online"
 
-SOURCE_DASHBOARD_ID = 21
-NEW_TABLE_NAME = None # "demo_superset_labavatar_TEST"
-NEW_SCHEME_NAME = None #"demo_0"
-NEW_DASHBOARD_TITLE = "Lab Data v2.1"
+TARGET_SUPERSET_URL = "http://10.100.100.50:8088"  # Без /superset в конце
+# TARGET_SUPERSET_URL = "https://dss.gontardcie.online"
+# TARGET_SUPERSET_URL = "http://159.100.244.234:8088"
+# TARGET_SUPERSET_URL = "https://dss.gontardcie.online"
+
+SOURCE_DASHBOARD_ID = 92
+NEW_TABLE_NAME = "labflow_superset_labavatar" # None # "demo_superset_labavatar_TEST"
+NEW_SCHEME_NAME = "simulation" # None #"demo_0"
+NEW_DASHBOARD_TITLE = "LabFlow LA (Simulation)"
 
 
 # ######################## SESSION ######################## #
 # Login via browser -> f12 -> Application -> Cookie -> Session
-cookie = ""
+cookie = ".eJy9VsmSo0gS_ZUxnSfbggAkUTdtIEgRJGKNaBtLY5NYAqQUaIG2_vdxlFXdWdOnusyJLcL9-Xv-nPhj8n64ZG0--dZdrtm_J-9FOvk2mckpUuTpbCbP54dEFBUkzqQERQd8ULK5hOJMSNB0Ks0TCc-UBM9maTafijJWEjESszgSxCxSJJyISoazeSLMUllOY3keJXieHOYCVuYxFoXZXMqm0TTD4jySkCTLMznD0ySbAJBrm10-0WB45Kck4hk8ZA08naJrB5D_mPyrm3z7fZL1Rh5rSWEVhuMNukAKvdWbvZys9KNVLAqHp55e3IsI80ovFlN9Zdw99byLa74PGnLfi-fzXrQlT_RvREx5tmUhcZdC4BkDE5lmc_XK0MMzQ5XoDfoN8sGaRWGVG5G43p0MtLfWkLPmebrSp6abCMRdiKTc3E3IS0MfRaqCokDgenl6kMETzHWCTXfx2K2Mj1SrRuy5ORyRGXgP5iCZYlvYufYAcTtrrRbmCg2spg9W64i6G0yxWcDecyKa495Tut3fk-F024l-Th25ibGMaGhUFHO-q5VrrPErc5SeBWobh-Ztj4ixd0bMqsAAM1xLihUhbuwx7pAGOsTVJeaSmpaEk0KoWG33gKknJQVMtsAKJJhYrchQiSZmJR28cS_KwsWIaQW5ehbq47s8a57vhjRc8qQhPF0JCFhGoy7JqEt5Kswyr5lmcBPrnRnsa1IgRPEG7dyjTIekY2sqk4AiOmwelqYL414akP6597OWNtYUkQV2F4vGmWF-TXp9GvT67bUwUsDxWb-v5BQT_uSuaYukVloWwj1vC6b5NejVAr4-xg-e9EIzcjjmijGrnzx-2Q8xhThQD0-NNaWPwnOeavwWQ76DA7XV_hCLfk-xfwCsJdQ86OV5pjdESDS_T7CPduEeYtn_wGIH-y4KpCIMUftVn_9dB_mvNEj5LvhJw44Gcs6w1415AcMVamqjQL4AJ-APdmZh0iVb48Zq3jIH8I55mnHtcuzTYryCRyp9uwQu2DnWvCMLhDwK7mN8DnnPsapgFgLXNedjH6VbQ2BQd1yrHXOgr6p9DjFafWPk8C2PsIKfmm8Nzmqov_arUPQHiAE1PP0BGvy8FjQtafD4_AZ8QO4mChmPufLXnr2mXr_jquHdOd7yw98Yfo73owbox4rWKkpq9RKLbMGwck016FmNnJkjlzFGY7xbUqdb4FtItiPf3Uyv5TwOvNEfAlkfRRLoElkJNXETCfwhs_II_shL5oBnXK9nZc7ZeplbGp3aVfX07XfPVXSwRbYm5c5dVkSjHVlzbvZItlwTvJYg8NYd5olkuUlvjrrV4GH06Rfi2hIZ_AK82LHSE60VQlZAAcNRoqA702DO1FQCP9ypm9dP3r_0jev5xK58R-eCstu2f2tWeshaJwItj2gXUIEMxxFXDfElSyPQZ3tOXKO2NL8ytY3EyvMa_MZ1dc9pgL7Ux3KYngMr0wow3Um9gTg2MnuhoFgtIPaduPRulosBnFFZzv-rvrSgw7Jk5ch7BRp6HdFsCfQqQE-8c1kNM_rB3A0iZYKZe_7Uf7V4PP8jgf3sHZhFmJZVT3okmqUJc2rPR-1pCZgKoaQlzOKS5dRNa3PY_Ogl48nNr2IYuWmMW6z54_yI9UpQXc9QvXHO-KNv9-BV9Tr-f8Z596vcWRUBbN7R1_w8dhSy94TV3h9nN8TCRmlqpDax2Vmuh4iDEFvn0Ac69An0bE3hP6hy07UxGRi3qrSHeXPX15vbXxoAb7vhl_tq5XzBAnPwt-W6cT1FdwUsBG0e7-CosoqFzH2nlimo5apbN8p8e1rswvRtYxnL0l6trNvWLPnLpQvRzCqrj1fLC64w341UteIH3ry6Fz4dYtnq1JsoDTMa6Leh3_j12soM5S23LEd5OG8fCc1ux9JKpx1Tp9vrNro3VMzq3Ut0U27vyrpgwlkanM4MV-1xGeRvRnUhsgU5X-7Bcd33nJg0mHmIkaucn82loLzpiqo7xTU7v784nn417lPztTCXlfNCpZs96yJjNl2LZ2Yp2dsjfFSOoRyYHZBGu4jvb6vVKVor_TGq5f5D-VjWp1t1WmE77T40sX0EvWhe-lO_NDPz9YPt9XmoldIj1OZ1f8SkIUaLP-ZRYcOZavKfP78frN7Pl9OtSLMLHLeOSZG9VFmf8FNU_Th5vbdd1I2HMbfzCGsSEPc23_pN-7gr2dZUN624w6k2-fO__fF15A.aJxWBg.6j1K4xoeeUCGl5y6J1Xj7IxDunY"
 
 COOKIES = {
     "session": cookie
@@ -40,9 +47,9 @@ def get_access_token():
         "scope": "openid",
         "client_id": KEYCLOAK_CLIENT_ID,
         "client_secret": KEYCLOAK_CLIENT_SECRET,
-        "email": "some",
-        "username": "some",
-        "password": "some"
+        "email": "dbatrakov@gontardcie.com",
+        "username": "dbatrakov",
+        "password": "JbqIhxa2yBVa"
     }
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     res = requests.post(token_url, data=payload, headers=headers)
