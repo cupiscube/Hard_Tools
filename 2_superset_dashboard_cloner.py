@@ -21,23 +21,29 @@ SOURCE_SUPERSET_URL = "http://10.100.100.50:8088"  # Без /superset в кон�
 # SOURCE_SUPERSET_URL = "http://159.100.244.234:8088"
 # SOURCE_SUPERSET_URL = "https://dss.gontardcie.online"
 
-TARGET_SUPERSET_URL = "http://10.100.100.50:8088"  # Без /superset в конце
+# TARGET_SUPERSET_URL = "http://10.100.100.50:8088"  # Без /superset в конце
 # TARGET_SUPERSET_URL = "https://dss.gontardcie.online"
 # TARGET_SUPERSET_URL = "http://159.100.244.234:8088"
 # TARGET_SUPERSET_URL = "https://dss.gontardcie.online"
+TARGET_SUPERSET_URL = "http://172.16.82.66:8088"
 
 SOURCE_DASHBOARD_ID = 92
-NEW_TABLE_NAME = "labflow_superset_labavatar" # None # "demo_superset_labavatar_TEST"
-NEW_SCHEME_NAME = "simulation" # None #"demo_0"
-NEW_DASHBOARD_TITLE = "LabFlow LA (Simulation)"
+
+NEW_TABLE_NAME = "demo_superset_labavatar" # None # "demo_superset_labavatar_TEST"
+NEW_SCHEME_NAME = "labavatar_dev" # None #"demo_0"
+NEW_DASHBOARD_TITLE = "Labavatar [DEMO]"
 
 
 # ######################## SESSION ######################## #
 # Login via browser -> f12 -> Application -> Cookie -> Session
-cookie = ".eJy9VsmSo0gS_ZUxnSfbggAkUTdtIEgRJGKNaBtLY5NYAqQUaIG2_vdxlFXdWdOnusyJLcL9-Xv-nPhj8n64ZG0--dZdrtm_J-9FOvk2mckpUuTpbCbP54dEFBUkzqQERQd8ULK5hOJMSNB0Ks0TCc-UBM9maTafijJWEjESszgSxCxSJJyISoazeSLMUllOY3keJXieHOYCVuYxFoXZXMqm0TTD4jySkCTLMznD0ySbAJBrm10-0WB45Kck4hk8ZA08naJrB5D_mPyrm3z7fZL1Rh5rSWEVhuMNukAKvdWbvZys9KNVLAqHp55e3IsI80ovFlN9Zdw99byLa74PGnLfi-fzXrQlT_RvREx5tmUhcZdC4BkDE5lmc_XK0MMzQ5XoDfoN8sGaRWGVG5G43p0MtLfWkLPmebrSp6abCMRdiKTc3E3IS0MfRaqCokDgenl6kMETzHWCTXfx2K2Mj1SrRuy5ORyRGXgP5iCZYlvYufYAcTtrrRbmCg2spg9W64i6G0yxWcDecyKa495Tut3fk-F024l-Th25ibGMaGhUFHO-q5VrrPErc5SeBWobh-Ztj4ixd0bMqsAAM1xLihUhbuwx7pAGOsTVJeaSmpaEk0KoWG33gKknJQVMtsAKJJhYrchQiSZmJR28cS_KwsWIaQW5ehbq47s8a57vhjRc8qQhPF0JCFhGoy7JqEt5Kswyr5lmcBPrnRnsa1IgRPEG7dyjTIekY2sqk4AiOmwelqYL414akP6597OWNtYUkQV2F4vGmWF-TXp9GvT67bUwUsDxWb-v5BQT_uSuaYukVloWwj1vC6b5NejVAr4-xg-e9EIzcjjmijGrnzx-2Q8xhThQD0-NNaWPwnOeavwWQ76DA7XV_hCLfk-xfwCsJdQ86OV5pjdESDS_T7CPduEeYtn_wGIH-y4KpCIMUftVn_9dB_mvNEj5LvhJw44Gcs6w1415AcMVamqjQL4AJ-APdmZh0iVb48Zq3jIH8I55mnHtcuzTYryCRyp9uwQu2DnWvCMLhDwK7mN8DnnPsapgFgLXNedjH6VbQ2BQd1yrHXOgr6p9DjFafWPk8C2PsIKfmm8Nzmqov_arUPQHiAE1PP0BGvy8FjQtafD4_AZ8QO4mChmPufLXnr2mXr_jquHdOd7yw98Yfo73owbox4rWKkpq9RKLbMGwck016FmNnJkjlzFGY7xbUqdb4FtItiPf3Uyv5TwOvNEfAlkfRRLoElkJNXETCfwhs_II_shL5oBnXK9nZc7ZeplbGp3aVfX07XfPVXSwRbYm5c5dVkSjHVlzbvZItlwTvJYg8NYd5olkuUlvjrrV4GH06Rfi2hIZ_AK82LHSE60VQlZAAcNRoqA702DO1FQCP9ypm9dP3r_0jev5xK58R-eCstu2f2tWeshaJwItj2gXUIEMxxFXDfElSyPQZ3tOXKO2NL8ytY3EyvMa_MZ1dc9pgL7Ux3KYngMr0wow3Um9gTg2MnuhoFgtIPaduPRulosBnFFZzv-rvrSgw7Jk5ch7BRp6HdFsCfQqQE-8c1kNM_rB3A0iZYKZe_7Uf7V4PP8jgf3sHZhFmJZVT3okmqUJc2rPR-1pCZgKoaQlzOKS5dRNa3PY_Ogl48nNr2IYuWmMW6z54_yI9UpQXc9QvXHO-KNv9-BV9Tr-f8Z596vcWRUBbN7R1_w8dhSy94TV3h9nN8TCRmlqpDax2Vmuh4iDEFvn0Ac69An0bE3hP6hy07UxGRi3qrSHeXPX15vbXxoAb7vhl_tq5XzBAnPwt-W6cT1FdwUsBG0e7-CosoqFzH2nlimo5apbN8p8e1rswvRtYxnL0l6trNvWLPnLpQvRzCqrj1fLC64w341UteIH3ry6Fz4dYtnq1JsoDTMa6Leh3_j12soM5S23LEd5OG8fCc1ux9JKpx1Tp9vrNro3VMzq3Ut0U27vyrpgwlkanM4MV-1xGeRvRnUhsgU5X-7Bcd33nJg0mHmIkaucn82loLzpiqo7xTU7v784nn417lPztTCXlfNCpZs96yJjNl2LZ2Yp2dsjfFSOoRyYHZBGu4jvb6vVKVor_TGq5f5D-VjWp1t1WmE77T40sX0EvWhe-lO_NDPz9YPt9XmoldIj1OZ1f8SkIUaLP-ZRYcOZavKfP78frN7Pl9OtSLMLHLeOSZG9VFmf8FNU_Th5vbdd1I2HMbfzCGsSEPc23_pN-7gr2dZUN624w6k2-fO__fF15A.aJxWBg.6j1K4xoeeUCGl5y6J1Xj7IxDunY"
+cookie = ".eJydVtuSozgS_ZUNP29NCATY9JsLF1gUiOJutLFRYS7mjl0GX2Bi_n0TV_X09M6-9D7ZCCnz5DmZB_2-eD-cs75YfBvOl-yfi_cyXXxboKWE5ThZcXglZKlwwEISZ0uM90uM0AEny1iWZQnJqcjzK0nCqxXCh2wvJbEoJhwvSMkKrVKZTw_SSkrh5AFzS5SJ6VKUVhkvHjjMZbG8lDiJ5zn5cEglQZIyAaHVKuH3aAFALn12_kTDw2NzTPZNBg9ZB0_H_WUAyL8v_jEsvv1rkY16EWtJaZW660-EoyXpSeeIiUJyq1yXbpP6pLyVe76pSbmWiKLffPVkxG3jhB29Ofh0crAt-Di4Upw22ZbtqPfMhb4-Mcw0u1EvDN19c6dS0qHfIB_sWZdW9YJpZfNm9XIzq7wnbVOkCpFML-HpJhrNTY4s5VZGuwDtVRntQ64h1fFOpwjRitysjY0NRf9ItRqwE8Gc1iPbmBNTkMg0XzQ8-x6FL0NU6Y0JaybPWnPyecuzkVn5JZw9Jdic6z6mW-eWTMergYMicsUu5kUU7fQ64pvGaOVLrDUX5sojC9U-3plXB1HdcYGnVuUYYIbfKuJlLu7sOe6UhuSBiXm0jSra0JKrWWuPgGmkVTQAdo6ViDN5taZTjQFbFU0PTCjbrWdMCuQa2Y7Ma0XWPdamdPfcJB1tUoVDwDKadUlmXapjGfHRjVY1jqZ8oJ59M0uEKE_uhpfzLPQH5tnY2gQlnQBX9dzOZ6OQjvNZ87OWPtZkzEJ7iLF-YnxzSUYihSO5vpZ6Cjg-6w_kIuJp8-Cu68uklXu2g_9NXzItaEGvHvCNMX9vkpHrZg7nXDHw_-DxL-chJheH6uGhsSaP-92pSLXmGkO-gwu1tcEU42CM-OAAWCuoeSLVaUk6yiVaMCZ8gIydA7Hsv2GxQ2fYh0K526H-r_r89z7If4nCtDHCnzQcolAsGO8Pc17AcIGa-n0onoETmA92YrtkSLb6lbVNz1zAO-fp5r3Pc5-W8y_MSE22z8AFO8Wan3_lzVnIFfvwNudpIP8pVmWe7YDztmnmfkq3Oseg_rhVB-ZCf9VOAbF68qIX8K7Y8zL_0H6rN6wFHtqg3uFgghhQy2NOQIuf94K2VRTeP98BL5C72-9YEzfyn2ccTb184Wph7RRvm8MPDD_H-14D9GUdtSpKWvUcY7ZmvHxJNehdjZ6YK1Yxj-Z416RNt1A_l2xn3gfQUL_GWjDrGZOaUz1fV_3PPpv36o-5qnxkbRIuqnJkhBFH597eNK2lIMHSKGjmNNTTW0sLalN7EdjsXe3XPIRORTdpbfLmYGo2gnlDVuhPhleL5kQGOsE8eGvwk1yErpoeHH2v9VfzVifFdXXZ2P7cW54fULsOXNLMPQj-gT6xwXwKdApK8IGBVT6GuIAtEmBWhQh6DvyLM9tIgFm8RV7xmNV9aM9cgy4O1BRh8DnB3LACPAXRjTlELS2ikmvNjc-bG3Izp4hnm3rm_k99fzWvVVPQws8DLSji_1Gf7TvU9WHG5l7Feuc-MBIMGMCP02LmHPJwhue0zKsHy2MVnTFq_hRNETZbtYi8h8edPvV-uTHQxORtzgiJSEG7WUOIA_Gc2vCCypx00NYXo9a_P75VrVjEof__5JVc7lknqt4k4D2p8hzAjCH4RvXwjfryr9n_dOr4nOIE5G91Rq15A9-dohGJwO2cr7Y08IwKeC4RuHrCmSHg3ESYtv6POlvw_4qVlkew4SWjOdkDBe-0FK6kVdEaIS1pqJYUcFKI_-nPP-r8xbySg_VrulvnJmgIfvhben3ug_vlxLbK1C_FTtZ4E39s3Uwv-lUVXMmHqBDfxlkjupm_Vd5WeZd-OLa1e-uPG5keSGQl-Tt5nqqQ09qCLT8OTzyePDmc7i4zKvdtGhXzOpynHB-Z5iRdtuyRI2_e8kFz5fp2PL2qcjVOvXZ_ul7CJW-8kG0e6MjB5ElKK6Pyrp5L1F65Hc3TU7I_vwzHs1YhaiT3-p2sy2KbE6E_WPthdf9oNJ-o9MkYWy_-cDrtPnGnnN3f27fVShe5az2s3oXXdT4OgfrWdc6rpnNm7AqarHSvnkEcombapQ1LsfPTQnwmguBt3i6HrdR6x0N_Kd6uwcY7bxSSYVHsngo_vWf53uX9g2PVV7F7jXY3uFst_v3H1wXr_XQ-Xss0O8O1K0_K7KnOxqQ57uvvN7D3ftgP86WMcUNpNreNSAuU3_JKeetlyRWW4YhjkS3--A_0tXhf.aS36MA.7PxEAz5SgSK1UW0SSGY8WuB2rJ0"
+cookie_source = ".eJydVtuSozgS_ZUNP29NCATY9JsLF1gUiOJutLFRYS7mjl0GX2Bi_n0TV_X09M6-9D7ZCCnz5DmZB_2-eD-cs75YfBvOl-yfi_cyXXxboKWE5ThZcXglZKlwwEISZ0uM90uM0AEny1iWZQnJqcjzK0nCqxXCh2wvJbEoJhwvSMkKrVKZTw_SSkrh5AFzS5SJ6VKUVhkvHjjMZbG8lDiJ5zn5cEglQZIyAaHVKuH3aAFALn12_kTDw2NzTPZNBg9ZB0_H_WUAyL8v_jEsvv1rkY16EWtJaZW660-EoyXpSeeIiUJyq1yXbpP6pLyVe76pSbmWiKLffPVkxG3jhB29Ofh0crAt-Di4Upw22ZbtqPfMhb4-Mcw0u1EvDN19c6dS0qHfIB_sWZdW9YJpZfNm9XIzq7wnbVOkCpFML-HpJhrNTY4s5VZGuwDtVRntQ64h1fFOpwjRitysjY0NRf9ItRqwE8Gc1iPbmBNTkMg0XzQ8-x6FL0NU6Y0JaybPWnPyecuzkVn5JZw9Jdic6z6mW-eWTMergYMicsUu5kUU7fQ64pvGaOVLrDUX5sojC9U-3plXB1HdcYGnVuUYYIbfKuJlLu7sOe6UhuSBiXm0jSra0JKrWWuPgGmkVTQAdo6ViDN5taZTjQFbFU0PTCjbrWdMCuQa2Y7Ma0XWPdamdPfcJB1tUoVDwDKadUlmXapjGfHRjVY1jqZ8oJ59M0uEKE_uhpfzLPQH5tnY2gQlnQBX9dzOZ6OQjvNZ87OWPtZkzEJ7iLF-YnxzSUYihSO5vpZ6Cjg-6w_kIuJp8-Cu68uklXu2g_9NXzItaEGvHvCNMX9vkpHrZg7nXDHw_-DxL-chJheH6uGhsSaP-92pSLXmGkO-gwu1tcEU42CM-OAAWCuoeSLVaUk6yiVaMCZ8gIydA7Hsv2GxQ2fYh0K526H-r_r89z7If4nCtDHCnzQcolAsGO8Pc17AcIGa-n0onoETmA92YrtkSLb6lbVNz1zAO-fp5r3Pc5-W8y_MSE22z8AFO8Wan3_lzVnIFfvwNudpIP8pVmWe7YDztmnmfkq3Oseg_rhVB-ZCf9VOAbF68qIX8K7Y8zL_0H6rN6wFHtqg3uFgghhQy2NOQIuf94K2VRTeP98BL5C72-9YEzfyn2ccTb184Wph7RRvm8MPDD_H-14D9GUdtSpKWvUcY7ZmvHxJNehdjZ6YK1Yxj-Z416RNt1A_l2xn3gfQUL_GWjDrGZOaUz1fV_3PPpv36o-5qnxkbRIuqnJkhBFH597eNK2lIMHSKGjmNNTTW0sLalN7EdjsXe3XPIRORTdpbfLmYGo2gnlDVuhPhleL5kQGOsE8eGvwk1yErpoeHH2v9VfzVifFdXXZ2P7cW54fULsOXNLMPQj-gT6xwXwKdApK8IGBVT6GuIAtEmBWhQh6DvyLM9tIgFm8RV7xmNV9aM9cgy4O1BRh8DnB3LACPAXRjTlELS2ikmvNjc-bG3Izp4hnm3rm_k99fzWvVVPQws8DLSji_1Gf7TvU9WHG5l7Feuc-MBIMGMCP02LmHPJwhue0zKsHy2MVnTFq_hRNETZbtYi8h8edPvV-uTHQxORtzgiJSEG7WUOIA_Gc2vCCypx00NYXo9a_P75VrVjEof__5JVc7lknqt4k4D2p8hzAjCH4RvXwjfryr9n_dOr4nOIE5G91Rq15A9-dohGJwO2cr7Y08IwKeC4RuHrCmSHg3ESYtv6POlvw_4qVlkew4SWjOdkDBe-0FK6kVdEaIS1pqJYUcFKI_-nPP-r8xbySg_VrulvnJmgIfvhben3ug_vlxLbK1C_FTtZ4E39s3Uwv-lUVXMmHqBDfxlkjupm_Vd5WeZd-OLa1e-uPG5keSGQl-Tt5nqqQ09qCLT8OTzyePDmc7i4zKvdtGhXzOpynHB-Z5iRdtuyRI2_e8kFz5fp2PL2qcjVOvXZ_ul7CJW-8kG0e6MjB5ElKK6Pyrp5L1F65Hc3TU7I_vwzHs1YhaiT3-p2sy2KbE6E_WPthdf9oNJ-o9MkYWy_-cDrtPnGnnN3f27fVShe5az2s3oXXdT4OgfrWdc6rpnNm7AqarHSvnkEcombapQ1LsfPTQnwmguBt3i6HrdR6x0N_Kd6uwcY7bxSSYVHsngo_vWf53uX9g2PVV7F7jXY3uFst_v3H1wXr_XQ-Xss0O8O1K0_K7KnOxqQ57uvvN7D3ftgP86WMcUNpNreNSAuU3_JKeetlyRWW4YhjkS3--A_0tXhf.aS36MA.7PxEAz5SgSK1UW0SSGY8WuB2rJ0"
+cookie_target = ".eJy9VsmSo0gS_ZUxnafaiAAkUbfUAoIUQbETMTaWxiZBECBlog3a-t_HUVZ1V82c-jIntgj35_78PeL32dvho-yr2ddDKvryn7O3uph9nc0VlGNNQYf5ci4dZJylqSZlGKVYLZC6XBRZuTwo6mEul6WKD0ukLdAyRwgvUglLGBeqrKqpkqeFImtzVUkXaI6VQs6kcqGkKkZZWsCnZXaQs1zCB4QOOJtjGeVzdamq8gyAXPvy4xPN9ChOeSpKeCg7eDql1wtg_n32j8vs679m5WBVmZHXTm354WgiUpu92XlqvjaPTv1S-6IIzfpep1g0Zv0yN9fWPdTP-6wVXtyRuyefz57sKqEc3YhciHLHEhKsUBxaI5OZ4Qr9yqRHaCc6MTvpN8gHa15qh29lwreDEzSKE2x7sxVVsTbndpBjOzBVJ8gftn-vaRJJqa5JaYyEyU8PMtKHzRuVjNvHfm29F0YD2E14d1RZQCrmo5bGFO8Dr2K8uTgb0bC1pDIeSiRgFR31lnGzhr3nXLanuk_Fzrvn4-m2l6OK-mqXYVWiidVQLMS-1a6ZIa7M1wYW632W2DdPIpbnQ59aHTHADFdOsYayzp3ijkVsTpgUwNNSTgSpUcNad9gH7kA4BUwuYrWEbKw3ZGxkGzNOx3DaK5XJy4RpDbkGljxxVmX3fDcWyUrkHRHFGknQZWniJZ944aeaxiHUGFVsQy_EsEfmS5LNdb6PtzLkuxBMWicmjWPold2692kvjckw7bU_a-kzQ5NZ7F4y2TozLK75YM7jwby91lYBOD7rj7SKYiKevev6Om-1niVwL_qaGVELfPWAb8jwQ-QD6qYeTrkyzNpnH3_aDzFRFuuHJ8eGNqTJuSoMccsg3wG4z9tozORooDg6AFYONY8mPy_MjqDciIYcR9I-8SCW-z9Y3Ni7pLFSJ4nU_8zPf6-D_FcaF2If_8LhhcZqxXB4mfIChivU1Kex-gE9AX2wM0vyS76zbqwVPfMB75Snm9aupjmtpytopDF3K-gFO2dGePye98hiVKXxfcojIP850zXMEuh5K8Q0T8XOQgzqz1r9wnyYr8arIFZvbq0KvlUp1vCT-50lWAt9aKMmkaMRYkAtT50AF7-uBW45jR-f36AvkLtLEyYyof25xzP063dcoCF0znbi8BeGX-P9qAHmsqGtLuWt_pHJ7IVh7VoYMLsGOTNf5RmWpni3vC12UD_Kd1PfLwuzVassDiedILI5yiQ2FbJGLQlyBXQCs3wEnVQc9NywIBwYrwTbrCrHoHO3aZ76_a69ho6uzDaE74NVQwyY_40Q9iCBh9iguVwCjd3BV8Bn8sGe-GtBy9KnbkjgKmSM6kkj4BGys5YkJ6aA4ahQ4J8ZIbJbqoAu7jSo2mfff5qfIIyI20S-KZC23_V_cQZ-42xyRPlR2scUkfE44WohvuIYBObNEySwWseIGtvYKoyfN6A7YeqeoLH0U32sAhcdGS8awHQn7RbiuJI9oJpivYbYdxLQu81fRlBI4_j_r_qKmo4rzvjU9wY4DMF3XAX4qoFP8F_WkjF8sGArEZ5jFpw_-V-_PJ7_k9h9zg4Br6a8GcggyTa3JfBtMXFPOWCqEafgaZSDbwdFa4_bH7NkPXvzdzFMvemsW2ZEk49kZoP0ILT0cPKbaNKvB5rVr9N_aPK9v9s7pyGALTxGRlRlvka8EK29aPJwiIUtbhuktbF9cQL4F4E_s00Fc2DCnMDMtlQmgS7swMVkZMJpigF8525utrc_OYC-7ce_PVdr_ycs4Ie_nYfdYly8H6sby4LcMNjrQDz__bZpGp5nCXlNciSDM5YkOodsfzWMgyjjw6LLaYP7q-reXzXHYt7BPw-vo7Zm98qniZdrcTH45GR85PtSKTZBWfSqHHwh8asXHTLPabZM8-MA8RBmuH89EhtrRx_v9vpie48ex2-JtbGX-G3p5fO3eJOKdYoy4Rir9aNZDnCKkW_vaTdKl6AM7Qc6I5ei4MWlX3ho55uFg8d2n70GPGh4WuFT9_5OUsv86K91QXbOcc5R6al10qxedq_v74b01lV74-hf60OZcm-0rFbvltfIdTZSJhdF5nan681ajIfc2jXUypSP_iGCmHps0W2_mV6Mv3nri2j6Wl5rL3C2mv37j-8HrLfzx-lWF-UHHLuOeV1-acohF6e0-XECe-sv6WU6lHV96sqPg_oqrbT56rhOsJ3NU2W9CRdyxGd__AeYDHuI.aR2Wtg.kaGOT5rZY11-hNKLoil06qcEwhg"
 
 COOKIES = {
-    "session": cookie
+    "session": cookie,
+    "session_source": cookie_source,
+    "session_target": cookie_source,
 }
 
 def get_access_token():
@@ -58,10 +64,10 @@ def get_access_token():
 session_1 = requests.Session()
 session_2 = requests.Session()
 
-def setup_session(session, SUPERSET_URL):
+def setup_session(session, SUPERSET_URL, cookie_key: "session"):
     access_token, _ = get_access_token()
     # Login via browser -> f12 -> Application -> Cookie -> Session
-    session_cookie = COOKIES.get('session')
+    session_cookie = COOKIES.get(cookie_key)
     session.cookies.set("session", session_cookie)
     me_url = f"{SUPERSET_URL}/api/v1/me/"
     res = session.get(me_url,
@@ -130,7 +136,8 @@ def get_metrics(base_dataset_id, SUPERSET_URL=SOURCE_SUPERSET_URL, session=sessi
 # ######################## CREATE ######################## #
 def create_dataset(base_dataset, new_table_name, new_scheme_name=NEW_SCHEME_NAME, SUPERSET_URL=TARGET_SUPERSET_URL, session=session_2):
     payload = {
-        "database": base_dataset["database"]["id"],
+        # TODO: Получение айди базы
+        "database": 8, # base_dataset["database"]["id"],
         "schema": new_scheme_name,
         "table_name": new_table_name,
         "sql": base_dataset.get("sql"),
@@ -140,6 +147,7 @@ def create_dataset(base_dataset, new_table_name, new_scheme_name=NEW_SCHEME_NAME
     }
     url = f"{SUPERSET_URL}/api/v1/dataset/"
     res = session.post(url, json=payload)
+    pass
     res.raise_for_status()
     return res.json()["id"]
 
@@ -289,10 +297,17 @@ def clone_charts(charts, new_dataset_id, new_dashboard_id, SUPERSET_URL=TARGET_S
         # Создание чарта
         chart_url = f"{SUPERSET_URL}/api/v1/chart/"
         cres = session.post(chart_url, json=new_chart)
-        cres.raise_for_status()
-        new_id = cres.json()["id"]
-        new_chart_ids.append(new_id)
-        id_mapping[chart_id] = new_id
+        try:
+            cres.raise_for_status()
+            new_id = cres.json()["id"]
+            new_chart_ids.append(new_id)
+            id_mapping[chart_id] = new_id
+        except:
+            pass
+            print(f'Chart {chart_id} has incorrect query_context data')
+            print(chart_url)
+            print(new_chart)
+
     return new_chart_ids, id_mapping
 # ######################## /CREATE ######################## #
 
@@ -404,8 +419,8 @@ def duplicate_dashboard_with_charts_and_layout(original_dashboard_id,
 
 
 def main():
-    setup_session(session_1, SOURCE_SUPERSET_URL)
-    setup_session(session_2, TARGET_SUPERSET_URL)
+    setup_session(session_1, SOURCE_SUPERSET_URL, 'session_source')
+    setup_session(session_2, TARGET_SUPERSET_URL, 'session_target')
     print("✅ Авторизация через Keycloak выполнена")
     dashboard = get_dashboard(SOURCE_DASHBOARD_ID)
     layout = json.loads(dashboard["position_json"])
