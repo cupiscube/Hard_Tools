@@ -15,12 +15,23 @@ def get_charts(dashboard_id, SUPERSET_URL, session):
     res.raise_for_status()
     return res.json()["result"]
 
-def clone_charts(charts, new_dataset_id, new_dashboard_id, SUPERSET_URL, session):
+def clone_charts(charts,
+                 # new_dataset_id,
+                 datasource_map: dict,
+                 new_dashboard_id,
+                 SUPERSET_URL,
+                 session):
     new_chart_ids = []
     id_mapping = {}
     for chart in charts:
         chart_id = chart["id"]
         new_chart = copy.deepcopy(chart)
+        query_context = json.loads(chart['query_context'])
+        dataset_id = query_context["datasource"]['id']
+        # dataset_id = chart["datasource_id"]
+        new_dataset_id = datasource_map.get(dataset_id).get("new_ds_id")
+        if not new_dataset_id:
+            raise Exception(f"There are no new dataset_id in {datasource_map.get(dataset_id)}")
         # Удаляем поля, которые нельзя отправлять
         for field in [
             "id", "changed_on", "changed_on_utc", "changed_by_name", "changed_by_url",

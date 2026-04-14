@@ -8,8 +8,8 @@ import asyncio
 import threading
 
 # Get table
-main_excel_path = r'C:/Users/DanilBatrakov/Gontard & CIE/Commercial Projects - 2. Time reports'
-tokens_path = r'C:/Users/DanilBatrakov/Gontard & CIE/Commercial Projects - 2. Time reports/API Token'
+main_excel_path = r'./data'
+tokens_path = r'./data'
 
 df = pd.read_excel(f'{main_excel_path}/New tags and projects list_Toggl.xlsx', sheet_name='1.2-User-specific tags',
                    index_col='Activity type')
@@ -21,28 +21,28 @@ clients.loc[clients['Client Name']=='Siemens-Bernhoven', 'Client Name'] = 'Bernh
 
 tokens = pd.read_excel(f'{tokens_path}/API Tokens.xlsx', sheet_name='API Token')
 
-rep_tags_fix = pd.read_excel('./diff_tpc.xlsx', sheet_name='tags')
-rep_projects_fix = pd.read_excel('./diff_tpc.xlsx', sheet_name='projects')
-# rep_clients_fix = pd.read_excel('./diff_tpc.xlsx', sheet_name='clients')
-rep_clients_fix = None
+rep_tags_fix = pd.read_excel('./data/diff_tpc.xlsx', sheet_name='tags')
+rep_projects_fix = pd.read_excel('./data/diff_tpc.xlsx', sheet_name='projects')
+rep_clients_fix = pd.read_excel('./data/diff_tpc.xlsx', sheet_name='clients')
+# rep_clients_fix = None
 
 people = df.columns
 people = [
     'BADA', # \/
-    # 'AIVI', # \/
-    # 'BODM', # \/
-    # 'CHAL', # \/
-    # 'DIDA', # \/
-    # 'KURO', # \/
-    # 'AMAN', # \/
-    # 'NIRO', # \/
-    # 'PRAR', # \/
-    # 'SMVE', # \/
-    # 'TODA', # \/
-    # 'VAEL', # \/
-    # 'ANAS', # \/
-    # 'NIAL', # \/
-    # 'KAAN', # \/
+    'AIVI', # \/
+    'BODM', # \/
+    'CHAL', # \/
+    'DIDA', # \/
+    'KURO', # \/
+    'AMAN', # \/
+    'NIRO', # \/
+    'PRAR', # \/
+    'SMVE', # \/
+    'TODA', # \/
+    'VAEL', # \/
+    'ANAS', # \/
+    'NIAL', # \/
+    'KAAN', # \/
     'LAOK', # \/
 ]
 
@@ -407,8 +407,7 @@ def run(df, personalized_tags=personalized_tags):
     # Создаём потоки для каждого пользователя
     threads = []
     for user in users:
-        # cl_fix = rep_clients_fix.loc[rep_clients_fix['user']==user.user]
-        cl_fix = None
+        cl_fix = rep_clients_fix.loc[rep_clients_fix['user']==user.user]
         tg_fix = rep_tags_fix.loc[rep_tags_fix['user']==user.user]
         pr_fix = rep_projects_fix.loc[rep_projects_fix['user']==user.user]
         pass

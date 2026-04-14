@@ -41,4 +41,4 @@ def setup_session(session,
                       # allow_redirects=False
                       )
     res.raise_for_status()
-    print(f'✅ Авторизован как: {res.json().get('result').get('username')}')
+    print(f"✅ Авторизован как: {res.json().get('result').get('username')}")

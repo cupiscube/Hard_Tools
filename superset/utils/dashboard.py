@@ -23,7 +23,8 @@ def create_dashboard(title, SUPERSET_URL, session):
 def duplicate_dashboard_with_charts_and_layout(original_dashboard_id,
                                                new_dashboard_id,
                                                chart_id_map,
-                                               new_dataset_id,
+                                               # new_dataset_id,
+                                               datasource_map: dict,
                                                SOURCE_SUPERSET_URL,
                                                TARGET_SUPERSET_URL,
                                                session_1,
@@ -70,23 +71,29 @@ def duplicate_dashboard_with_charts_and_layout(original_dashboard_id,
 
     # Обновляем metadata (переносим фильтры)
     orig_metadata = orig_dashboard["json_metadata"]
+
     if isinstance(orig_metadata, str):
         while isinstance(orig_metadata, str):
             orig_metadata = json.loads(orig_metadata)
     # Обновляем json_metadata (переносим native_filter_configuration)
     filters = orig_metadata.get("native_filter_configuration", [])
-    for i in range(len(filters)):
-        filter_config = filters[i]
-        targets = filter_config.get("targets", [])
-        if targets:
+
+    new_filters = []
+    for filter in filters:
+        if filter["type"] == 'NATIVE_FILTER':
+            targets = filter["targets"]
+            if targets == [{}]:
+                continue
             for ii in range(len(targets)):
                 target = targets[ii]
-                try:
-                    target["datasetId"] = int(new_dataset_id)  # Обновляем на новый datasetId
-                    filters[i]["targets"][ii]["datasetId"] = int(new_dataset_id)
-                except:
-                    pass
-    orig_metadata["native_filter_configuration"] = filters
+                dataset_id = target.get("datasetId")
+                new_dataset_id = datasource_map.get(dataset_id).get("new_ds_id")
+                if not new_dataset_id:
+                    raise Exception(f"There are no new dataset_id in {datasource_map.get(dataset_id)}")
+                filter["targets"][ii]["datasetId"] = int(new_dataset_id)
+        new_filters.append(filter)
+
+    orig_metadata["native_filter_configuration"] = new_filters
 
     # 3. Обновляем дашборд с новым layout
     payload = {

@@ -7,8 +7,8 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 # Get table
-main_excel_path = r'C:/Users/DanilBatrakov/Gontard & CIE/Commercial Projects - 2. Time reports'
-tokens_path = r'C:/Users/DanilBatrakov/Gontard & CIE/Commercial Projects - 2. Time reports/API Token'
+main_excel_path = r'./data'
+tokens_path = r'./data'
 
 df = pd.read_excel(f'{main_excel_path}/New tags and projects list_Toggl.xlsx', sheet_name='1.2-User-specific tags', index_col='Activity type')
 tags_format = pd.read_excel(f'{main_excel_path}/New tags and projects list_Toggl.xlsx', sheet_name='Tags - Format')
@@ -16,7 +16,8 @@ projects = pd.read_excel(f'{main_excel_path}/New tags and projects list_Toggl.xl
 clients = pd.read_excel(f'{main_excel_path}/New tags and projects list_Toggl.xlsx', sheet_name='Client Name')
 tokens = pd.read_excel(f'{tokens_path}/API Tokens.xlsx', sheet_name='API Token')
 
-rep_fix = pd.read_excel('./report_fix.xlsx', sheet_name='tags_report')
+# rep_fix = pd.read_excel('./report_fix.xlsx', sheet_name='tags_report')
+rep_fix = None
 
 people = df.columns
 # people = people[:-1]
@@ -267,7 +268,7 @@ class UserRequests:
             time.sleep(60*61)
             return True
 
-    def get_workspace_id(self):
+    def get_workspace_id(self, auth):
         print("📡 Получаем workspace ID...")
         if self.wait():
             pass
@@ -412,7 +413,7 @@ def replace_client(auth, workspace_id, old_name, new_name, req_access):
     resp_j = resp.json()
     for client in resp_j:
         if client["name"] == old_name:
-            url = f'https://api.track.toggl.com/api/v9/workspaces/{workspace_id}/clients/{client['id']}'
+            url = f'https://api.track.toggl.com/api/v9/workspaces/{workspace_id}/clients/{client["id"]}'
             data = {"name": new_name}
             if req_access.wait():
                 pass
@@ -494,7 +495,7 @@ def replace_tag(auth, workspace_id, old_name, new_name, req_access):
     resp_j = resp.json()
     for tag in resp_j:
         if tag["name"] == old_name:
-            url = f'https://api.track.toggl.com/api/v9/workspaces/{workspace_id}/tags/{tag['id']}'
+            url = f'https://api.track.toggl.com/api/v9/workspaces/{workspace_id}/tags/{tag["id"]}'
             data = {"name": new_name}
             if req_access.wait():
                 pass

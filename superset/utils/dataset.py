@@ -15,32 +15,15 @@ def get_metrics(base_dataset_id, SUPERSET_URL, session):
     return metrics
 
 
-# def get_dataset_id(session, superset_url, database, schema, table_name):
-#     """
-#     Возвращает ID датасета из Superset по базе, схеме и названию таблицы.
-#     """
-#     query = {
-#         "q": f"(filters:!((col:database,opr:eq,value:{database}),(col:schema,opr:eq,value:'{schema}'),(col:table_name,opr:eq,value:'{table_name}')))"
-#     }
-#     url = f"{superset_url}/api/v1/dataset/"
-#     res = session.get(url, params=query, timeout=10)
-#     res.raise_for_status()
-#     data = res.json()
-#
-#     if not data.get("result"):
-#         raise ValueError(f"Не найден датасет: db={database}, schema={schema}, table={table_name}")
-#
-#     return data["result"][0]["id"]
-
-
 def get_dataset_id(session, superset_url, database, schema, table_name):
     url = f"{superset_url}/api/v1/dataset/?q=(page_size:1000)"
     res = session.get(url, timeout=10)
     res.raise_for_status()
     for ds in res.json().get("result", []):
         if (
-            ds.get("database", {}).get("id") == database
-            and ds.get("schema") == schema
+            # ds.get("database", {}).get("id") == database
+            # and
+            ds.get("schema") == schema
             and ds.get("table_name") == table_name
         ):
             return ds["id"]
@@ -86,80 +69,6 @@ def create_dataset(SUPERSET_URL,
     pass
     res.raise_for_status()
     return res.json()["id"]
-
-
-# def create_new_metrics(session, SUPERSET_URL, dataset_id, metrics):
-#     """
-#     Create new metrics in dataset.
-#     :param SUPERSET_URL: https://superset.com
-#     :param session: requests.Session()
-#     :param dataset_id: int dataset id
-#     :param metrics: list[{"metric_name": str,
-#                           "expression": str,
-#                           "verbose_name": str,
-#                           "description": optional str,
-#                           "d3format": optional str,
-#                           "warning_text": optional str,
-#                           "extra": optional str}]
-#     :return: True/False
-#     """
-#     # get dataset
-#     new_url = f"{SUPERSET_URL}/api/v1/dataset/{dataset_id}"
-#     res = session.get(new_url)
-#     res.raise_for_status()
-#     new_data = res.json()["result"]
-#     allowed_column_fields = {
-#         "id",
-#         "advanced_data_type",
-#         "column_name",
-#         "description",
-#         "expression",
-#         "extra",
-#         "filterable",
-#         "groupby",
-#         "is_active",
-#         "is_dttm",
-#         "python_date_format",
-#         "type",
-#         "uuid",
-#         "verbose_name"
-#     }
-#     clean_columns = []
-#     for col in new_data["columns"]:
-#         clean_col = {k: v for k, v in col.items() if k in allowed_column_fields}
-#         clean_columns.append(clean_col)
-#     # Prepare new metrics
-#     new_metrics = []
-#     for metric in metrics:
-#         if metric.get("metric_name") != 'count':
-#             new_metrics.append({
-#                 "metric_name": metric["metric_name"],
-#                 "expression": metric["expression"],
-#                 "verbose_name": metric.get("verbose_name"),
-#                 "description": metric.get("description", ""),
-#                 "d3format": metric.get("d3format", ""),
-#                 "warning_text": metric.get("warning_text", ""),
-#                 "extra": metric.get("extra", ""),
-#             })
-#     # Create payload
-#     payload = {
-#         "metrics": new_metrics,
-#         "columns": clean_columns,
-#         "description": new_data.get("description", ""),
-#         "extra": new_data.get("extra", ""),
-#         "schema": new_data.get("schema", ""),
-#         "table_name": new_data.get("table_name"),
-#         "sql": new_data.get("sql", ""),
-#         "template_params": new_data.get("template_params"),
-#         "owners": [o["id"] for o in new_data.get("owners", [])],
-#     }
-#     # Update dataset
-#     update_url = f"{SUPERSET_URL}/api/v1/dataset/{dataset_id}"
-#     res = session.put(update_url, json=payload)
-#     res.raise_for_status()
-#     if res.status_code != 200 or res.status_code != 201:
-#         return False
-#     return True
 
 def create_new_metrics(session, SUPERSET_URL, dataset_id, metrics):
     new_url = f"{SUPERSET_URL}/api/v1/dataset/{dataset_id}"
@@ -217,6 +126,12 @@ def create_new_metrics(session, SUPERSET_URL, dataset_id, metrics):
 
     update_url = f"{SUPERSET_URL}/api/v1/dataset/{dataset_id}"
     res = session.put(update_url, json=payload)
+    if res.status_code not in (200, 201) and res.text != '{"message":{"metrics":["One or more metrics already exist"]}}\n':
+        pass
+
+    if res.text == '{"message":{"metrics":["One or more metrics already exist"]}}\n':
+        print('Metrics are already exist')
+        return True
     if res.status_code not in (200, 201):
         print("Ошибка:", res.status_code, res.text)
         res.raise_for_status()
