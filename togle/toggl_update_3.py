@@ -411,7 +411,7 @@ def run(df, personalized_tags=personalized_tags):
         tg_fix = rep_tags_fix.loc[rep_tags_fix['user']==user.user]
         pr_fix = rep_projects_fix.loc[rep_projects_fix['user']==user.user]
         pass
-        cl_fix = None
+        # cl_fix = None
 
 
         thread = threading.Thread(target=lambda u=user: process_user(u,
@@ -434,13 +434,13 @@ def process_user(user, rep_clients_fix, rep_tags_fix, rep_projects_fix):
     try:
         # fix clients
         user.get_all_clients()
-        # user.fix_client_list(rep_clients_fix)
-        # fix tags
-        # user.get_all_tags()
-        # user.fix_tag_list(rep_tags_fix)
+        user.fix_client_list(rep_clients_fix)
         # fix projects
         user.get_all_projects()
         user.fix_project_list(rep_projects_fix)
+        # fix tags
+        # user.get_all_tags()
+        # user.fix_tag_list(rep_tags_fix)
 
         print(f"✅ {user.user}: Completed!")
     except Exception as e:
