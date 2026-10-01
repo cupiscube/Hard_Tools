@@ -7,9 +7,12 @@ from requests.auth import HTTPBasicAuth
 import asyncio
 import threading
 
+import os
+print(os.listdir())
+
 # Get table
-main_excel_path = r'./data'
-tokens_path = r'./data'
+main_excel_path = r'./togle/data'
+tokens_path = r'./togle/data'
 
 df = pd.read_excel(f'{main_excel_path}/New tags and projects list_Toggl.xlsx', sheet_name='1.2-User-specific tags',
                    index_col='Activity type')
@@ -21,9 +24,9 @@ clients.loc[clients['Client Name']=='Siemens-Bernhoven', 'Client Name'] = 'Bernh
 
 tokens = pd.read_excel(f'{tokens_path}/API Tokens.xlsx', sheet_name='API Token')
 
-rep_tags_fix = pd.read_excel('./data/diff_tpc.xlsx', sheet_name='tags')
-rep_projects_fix = pd.read_excel('./data/diff_tpc.xlsx', sheet_name='projects')
-rep_clients_fix = pd.read_excel('./data/diff_tpc.xlsx', sheet_name='clients')
+rep_tags_fix = pd.read_excel('./togle/data/diff_tpc.xlsx', sheet_name='tags')
+rep_projects_fix = pd.read_excel('./togle/data/diff_tpc.xlsx', sheet_name='projects')
+rep_clients_fix = pd.read_excel('./togle/data/diff_tpc.xlsx', sheet_name='clients')
 # rep_clients_fix = None
 
 people = df.columns
@@ -44,11 +47,12 @@ people = [
     'NIAL', # \/
     'KAAN', # \/
     'LAOK', # \/
+    'GOBE', # \/
 ]
 
 auths = {}
 for p in people:
-    token = tokens.loc[tokens['Столбец1'] == p, 'API Token'].values[0]
+    token = tokens.loc[tokens['Abbreviation'] == p, 'API Token'].values[0]
     auths[p] = (token, "api_token")
 
 personalized_tags = {}
@@ -439,8 +443,8 @@ def process_user(user, rep_clients_fix, rep_tags_fix, rep_projects_fix):
         user.get_all_projects()
         user.fix_project_list(rep_projects_fix)
         # fix tags
-        # user.get_all_tags()
-        # user.fix_tag_list(rep_tags_fix)
+        user.get_all_tags()
+        user.fix_tag_list(rep_tags_fix)
 
         print(f"✅ {user.user}: Completed!")
     except Exception as e:

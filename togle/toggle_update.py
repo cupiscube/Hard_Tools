@@ -6,8 +6,11 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 # Get table
-main_excel_path = r'./data'
-tokens_path = r'./data'
+main_excel_path = r'./togle/data'
+tokens_path = r'./togle/data'
+
+import os
+print(os.listdir())
 
 df = pd.read_excel(f'{main_excel_path}/New tags and projects list_Toggl.xlsx', sheet_name='1.2-User-specific tags', index_col='Activity type')
 tags_format = pd.read_excel(f'{main_excel_path}/New tags and projects list_Toggl.xlsx', sheet_name='Tags - Format')
@@ -39,6 +42,7 @@ people = [
     'NIAL', # \/
     'KAAN', # \/
     'LAOK', # \/
+    'GOBE', # \/
 ]
 
 pass
@@ -62,7 +66,7 @@ class Requests:
 
 auths = {}
 for p in people:
-    token = tokens.loc[tokens['Столбец1'] == p, 'API Token'].values[0]
+    token = tokens.loc[tokens['Abbreviation'] == p, 'API Token'].values[0]
     auths[p] = (token, "api_token")
 
 personalized_tags = {}
@@ -686,7 +690,7 @@ def run(df, personalized_tags:dict[list]=personalized_tags):
     projects_report = pd.concat(projects_df_list)
     clients_report = pd.concat(clients_df_list)
 
-    with pd.ExcelWriter("report.xlsx") as writer:
+    with pd.ExcelWriter("./togle/report.xlsx") as writer:
         tags_report.to_excel(writer, sheet_name="tags_report", index=False)
         projects_report.to_excel(writer, sheet_name="projects_report", index=False)
         clients_report.to_excel(writer, sheet_name="clients_report", index=False)
